@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block main
+  div
+    h2.page-title.m-t-none.pull-left My Trick
+    .pull-right
+      span.btn.btn-success.fileinput-button.m-r-sm
+        i.i.i-file-xml
+        span.m-l-xs Import Trick Bookmarks...
+        input(id="fileupload" type="file" name="files")
+      a.btn.btn-primary.pull-right(href="/trick/create" title="Create New Trick") Create New
+    .clearfix
+
+    section.block-tricks-user.block-tricks(data-id="#{User._id}", data-username="#{User.username}")
+
+      .clearfix

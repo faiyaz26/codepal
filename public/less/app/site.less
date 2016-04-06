@@ -1,0 +1,306 @@
+html,
+body {
+  height: 100%;
+  font-family: "Open Sans", @font-family-sans-serif;
+}
+
+body {
+  padding-top: 70px;
+  background: #fafafa
+}
+.navbar-brand {
+  padding: 0 15px;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+    color: @gray;
+  }
+}
+.heading {
+    padding-top : 26px;
+}
+
+.brandName {
+  margin-left : 10px;
+}
+
+#page {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100px;
+  padding: 0 0 140px;
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+#flash-message {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  z-index: 9999;
+}
+
+footer {
+  font-size: 12px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 100px;
+}
+
+
+
+
+.btn {
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+  &-twitter, &-facebook {
+    margin: 0 auto;
+    display: block;
+    color: #fff;
+    width: 250px;
+    text-align: left;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+  &-twitter {
+    background: #55acee;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    .box-shadow(0px 5px 0px darken(#55acee, 13%));
+
+    &:hover {
+      background: darken(#55acee, 8%);
+    }
+    &:active {
+      background: darken(#55acee, 11%);
+      .box-shadow(0px 3px 0px darken(#55acee, 13%));
+    }
+  }
+  &-facebook {
+    background: #3b5998;
+    margin-bottom: 30px;
+    .box-shadow(0px 5px 0px darken(#3b5998, 13%));
+
+    &:hover {
+      background: darken(#3b5998, 8%);
+    }
+    &:active {
+      background: darken(#3b5998, 11%);
+      .box-shadow(0px 3px 0px darken(#3b5998, 13%));
+    }
+  }
+}
+
+.form-signin,
+.form-reset-password {
+  max-width: 375px;
+  padding: 15px;
+  margin: 0 auto;
+
+  .alert {
+    width: 315px;
+    margin: 0 auto;
+  }
+
+  .forgot-password {
+    display: block;
+    text-align: center;
+  }
+
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 10px;
+  }
+  .checkbox {
+    font-weight: normal;
+  }
+
+  .form-control,
+  .form-control {
+    position: relative;
+    border: none;
+    box-shadow: none !important;
+    height: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .form-control:focus {
+    z-index: 2;
+    outline: none;
+    box-shadow: none !important;
+    border: none;
+  }
+  input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  button[type="submit"] {
+    width: 70%;
+    margin: 0 auto 20px;
+    outline: 0;
+
+    &.btn-reset-password {
+      width: 100%;
+    }
+  }
+}
+
+form {
+  label {
+    &.error {
+      font-weight: normal;
+      font-size: @font-size-sm;
+      margin-top: 3px;
+      color: @error-color;
+    }
+  }
+}
+
+.form-forgot-password {
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+
+  .form-control {
+    box-shadow: none !important;
+  }
+}
+
+.trick-item {
+  width: 282px;
+  float: left;
+  .box-shadow(0 1px 2px 0 rgba(0, 0, 0, 0.22));
+
+  &:hover {
+
+    .like-edit-button-wrapper {
+      display: block;
+    }
+  }
+
+  .trick-holder {
+    &:hover {
+      .hover-mask {
+        background: rgba(255, 255, 255, 0.2)
+      }
+    }
+  }
+
+  .hover-mask {
+    .transition(background 0.04s linear);
+    border-radius: 6px 6px 0 0;
+    box-shadow: none;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+  }
+
+  .like-edit-button-wrapper {
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 101;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .thumb-btn {
+    height: 250px;
+    display: block;
+    overflow-y: hidden;
+  }
+  .avatar {
+    height: 34px;
+  }
+
+  .b-t.pad-10,
+  .panel-body {
+    background: #fff;
+  }
+}
+.avatar{
+  width: 30px;
+  margin-top: -5px;
+  margin-right: 5px;
+}
+
+/*
+Bootbox (Confirm Dialog)
+ */
+
+.notifier {
+  position: fixed;
+  display: none;
+  top: 7px;
+  left: 50%;
+  font-size: 14px;
+  padding: 8px 1.3em;
+  z-index: 99999;
+}
+
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+#progress {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  .box-shadow(none);
+}
+
+.profile-card {
+  margin: 0 auto;
+  float: none;
+  clear: both;
+  width: 300px;
+}

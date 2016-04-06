@@ -1,0 +1,27 @@
+extends ../layouts/default
+
+block main
+	#codePad.panel.panel-default
+		header.panel-heading
+			h3.panel-title
+				.row
+					.col-md-2
+						select#lang.form-control
+							option(value = 0) C
+							option(value = 1) C++
+							option(value = 2) Go
+							option(value = 3) Java
+							option(value = 4) JavaScript
+							option(value = 5) Python 2.7
+							option(value = 6) Python 3.0
+					if codePad.readOnly == false
+						.col-md-1.pull-right
+							button#save.btn.btn-info Save
+		.panel-body
+			input#_csrf(type='hidden', name='_csrf', value=_csrf)
+			#editor
+
+	script(type='text/javascript').
+		var codePad  = !{JSON.stringify(codePad)};
+
+	
