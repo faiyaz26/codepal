@@ -1,0 +1,95 @@
+Showing commands matching 'list'
+
+[36mteam-list[0m (also 'teams', 'list-team', 'team list')
+--------------------------------------------------
+Display all teams you are a member of
+
+[36msshkey-list[0m (also 'sshkeys', 'list-sshkey', 'sshkey list')
+----------------------------------------------------------
+OpenShift uses public keys to securely access your application source code and
+to control access to your application gears via SSH.  Your account may have one
+or more public SSH keys associated with it, and any computer with the private
+SSH key will be able to download code from Git or SSH to the application.
+
+Depending on your operating system, you may have to ensure that both Git and the
+local SSH installation have access to your keys.  Running the 'setup' command is
+any easy way to get your first key created and uploaded.
+
+[36mserver-list[0m (also 'servers', 'list-server', 'server list')
+----------------------------------------------------------
+List all configured servers
+
+[36mregion-list[0m (also 'regions', 'list-region', 'region list')
+----------------------------------------------------------
+List the regions and zones available on the OpenShift server
+
+[36mmember-list[0m (also 'members', 'list-member', 'member list')
+----------------------------------------------------------
+Show the existing members of a domain, application, or team.
+
+To show the members of a domain or application, you can pass the name of your
+domain with '-n', the name of your application with '-a', or combine them in the
+first argument to the command like:
+  rhc members <domain_name>[/<app_name>]
+
+To show the members of a team, you can pass the name of the team with '-t':
+  rhc members -t TEAM_NAME
+
+The owner is always listed first.  To see the unique ID of members, pass
+'--ids'.
+
+[36menv-list[0m (also 'envs', 'list-env', 'env list')
+----------------------------------------------
+List all user-defined environment variables set on the application. Gear-level
+variables overriden by the 'rhc set-env' command will also be listed.
+
+[36mdomain-list[0m (also 'domains', 'list-domain', 'domain list')
+----------------------------------------------------------
+Display all domains you have access to
+
+[36mdeployment-list[0m (also 'deployments', 'list-deployment', 'deployment list')
+--------------------------------------------------------------------------
+List all existing deployments of a given application. Check the 'rhc
+configure-app' command to configure how many deployments are preserved in
+history.
+
+[36mcartridge-list[0m
+  (also 'app cartridge list', 'app-cartridge-list', 'cartridges',
+  'list-cartridge', 'cartridge list')
+-----------------------------------------------------------------
+Cartridges add functionality to OpenShift applications.  Each application has
+one web cartridge to listen for HTTP requests, and any number of addon
+cartridges.  Addons may include databases like MySQL and Mongo, administrative
+tools like phpMyAdmin, or build clients like Jenkins.
+
+Most cartridges that listen for incoming network traffic are placed on one or
+more gears (a small server instance).  Other cartridges may be available across
+all of the gears of an application to listen for changes (like Jenkins) or
+provide environment variables.
+
+Use the 'cartridges' command to see a list of all available cartridges. Add a
+new cartridge to your application with 'add-cartridge'. OpenShift also supports
+downloading cartridges - pass a URL in place of the cartridge name and we'll
+download and install that cartridge into your app.  Keep in mind that these
+cartridges receive no security updates.  Note that not all OpenShift servers
+allow downloaded cartridges.
+
+For scalable applications, use the 'cartridge-scale' command on the web
+cartridge to set the minimum and maximum scale.
+
+Commands that affect a cartridge within an application will affect all gears the
+cartridge is installed to.
+
+[36mauthorization-list[0m
+  (also 'authorizations', 'list-authorization', 'authorization list')
+---------------------------------------------------------------------
+Shows the full list of authorization tokens on your account. You can add, edit,
+or delete authorizations with subcommands.
+
+An authorization token grants access to the OpenShift REST API with a set of
+privileges called 'scopes' for a limited time.  You can add an optional note to
+each authorization token to assist you in remembering what is available.
+
+[36malias-list[0m (also 'aliases', 'list-alias', 'alias list')
+-------------------------------------------------------
+List the aliases on an application
