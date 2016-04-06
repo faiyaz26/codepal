@@ -33,6 +33,7 @@ module.exports = function (app, express, passport) {
   // settings
   app.set('env', env);
   app.set('port', app.config.server.port || 3000);
+  app.set('hostIp', app.config.server.hostname || '127.0.0.1');
   app.set('views', path.join(__dirname, '../../app/views'));
   app.set('view engine', 'jade');
 

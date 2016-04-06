@@ -29,8 +29,8 @@ require('./app/config/express')(app, express, passport);
 
 // create a server instance
 // passing in express app as a request event handler
-app.listen(app.get('port'), function() {
-  console.log("\n✔ Express server listening on port %d in %s mode", app.get('port'), app.get('env'));
+app.listen(app.get('port'), app.get('hostIp'), function() {
+  console.log("\n✔ Express server listening with hostIp : %s on port %d in %s mode", app.get('hostIp'),app.get('port'), app.get('env'));
 });
 
 module.exports = app;
