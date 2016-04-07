@@ -34,6 +34,7 @@ Route
   .get('/', codePadController.create)
   .get('/:codePadId', codePadController.show)
   .post('/:codePadId', codePadController.edit)
+  .get('/:codePadId/clone', codePadController.clone)
   .param('codePadId', codePadController.load)
 
 

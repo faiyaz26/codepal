@@ -35,6 +35,49 @@ exports.create = function (req, res, next) {
   
 }
 
+exports.clone = function(req, res, next){
+	if(req.codePad){
+
+	}else{
+		res.render('404', {
+			error : "404 - Not Found",
+			url   : 'Your requested url is not available.'
+		});
+		return;
+	}
+
+	var codePad = req.codePad;
+
+	var cloneCodePad = new CodePad();
+	//cloneCodePad._id = undefined;
+	cloneCodePad._id = randomstring.generate(6);
+	cloneCodePad.code = codePad.code;
+	cloneCodePad.language = codePad.language;
+	cloneCodePad.cloneCount = 0;
+	cloneCodePad.editKey = randomstring.generate(10);
+
+
+
+	codePad.cloneCount++;
+	cloneCodePad.save(function(err, curCodePad){
+		if(err){
+			//console.log("here");
+			res.send(err);
+			return;
+		}
+
+		
+
+		
+		//console.log("sd1212");
+		codePad.save(function(err, code){
+			//console.log("w12312")
+			req.session[curCodePad._id] = curCodePad.editKey;
+			res.redirect('/' + curCodePad._id);
+		});
+	});
+}
+
 exports.getInfo = function (req, res, next){
 	var codePad = req.codePad;
 }
@@ -63,7 +106,7 @@ exports.show  = function(req, res, next){
 		}
 	}
 
-	codePad = _.pick(codePad, '_id', 'language', 'code', 'readOnly');
+	codePad = _.pick(codePad, '_id', 'language', 'code', 'readOnly', 'cloneCount');
 
 	res.render('codepads/show',{
 		title : 'CodePal',
@@ -84,10 +127,12 @@ exports.edit = function(req, res, next){
 		if(req.session[codePad._id] == codePad.editKey){
 
 		}else{
-			res.send(403);
+			res.sendStatus(403);
+			return;
 		}
 	}else{
-		res.send(403);
+		res.sendStatus(403);
+		return;
 	}
 
 	codePad.language = req.body.language;
@@ -95,7 +140,7 @@ exports.edit = function(req, res, next){
 
 	codePad.save(function(err){
 		if(err){
-			res.send(err);
+			res.sendStatus(err);
 		}
 
 		res.json({

@@ -14,9 +14,15 @@ block main
 							option(value = 4) JavaScript
 							option(value = 5) Python 2.7
 							option(value = 6) Python 3.0
-					if codePad.readOnly == false
-						.col-md-1.pull-right
+					
+					.col-md-1.pull-right
+						if codePad.readOnly == false
 							button#save.btn.btn-info Save
+						else
+							a#save.btn.btn-info(href="/"+codePad._id+'/clone', style="margin-left: -20px;")
+								| Clone
+								span.badge(style="margin: 0 0 0 6px;")
+									| #{ codePad.cloneCount }
 		.panel-body
 			input#_csrf(type='hidden', name='_csrf', value=_csrf)
 			#editor

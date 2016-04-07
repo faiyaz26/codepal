@@ -24,6 +24,10 @@ var CodePad = new Schema({
   editKey : {
       type : String,
       'default' : shortid.generate(10)
+  },
+  cloneCount : {
+      type : Number,
+      'default' : 0
   }
 });
 
