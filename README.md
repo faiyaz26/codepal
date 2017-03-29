@@ -2,7 +2,7 @@
 
 A simple code sharing site. Where user can paste/write code and share to other.
 
-Live site: http://codepal.club
+Live site: http://node5-faiyaz26.rhcloud.com/K4jQq3
 
 Technology Used: Node.JS, Express, MongoDB
 
