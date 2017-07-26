@@ -2,7 +2,8 @@
 
 A simple code sharing site. Where user can paste/write code and share to other.
 
-Live site: http://node5-faiyaz26.rhcloud.com/K4jQq3
+Live site: http://node5-faiyaz26.rhcloud.com/
+Code Example: http://node5-faiyaz26.rhcloud.com/hfMfxB
 
 Technology Used: Node.JS, Express, MongoDB
 
